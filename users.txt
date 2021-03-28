@@ -1,0 +1,36 @@
+[
+   {
+      "authorities":[
+         "ADMIN",
+         "USER"
+      ],
+      "password":"{noop}demo-just-for-github",
+      "username":"not-used-in-production",
+      "accountNonExpired":true,
+      "accountNonLocked":true,
+      "credentialsNonExpired":true,
+      "enabled":true
+   },
+   {
+      "authorities":[
+         "USER"
+      ],
+      "password":"{noop}demo-again-for-github",
+      "username":"another-user-not-used",
+      "accountNonExpired":true,
+      "accountNonLocked":true,
+      "credentialsNonExpired":true,
+      "enabled":true
+   },
+   {
+      "authorities":[
+         "USER"
+      ],
+      "password":"{noop}demo-again-for-github-replace-with-real-pwd",
+      "username":"different-user-demo",
+      "accountNonExpired":true,
+      "accountNonLocked":true,
+      "credentialsNonExpired":true,
+      "enabled":true
+   }
+]

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Election Prediction Report</title>
+    <meta property="og:title" content="Election Prediction Report - America Needs Your Prediction!" />
+    <meta property="og:image" th:content="@{/img/wewantyou.png}" />
+    <style>
+        * {box-sizing: border-box;}
+        body {font-family: Helvetica, Arial, sans-serif;}
+        .mySlides {display: none;}
+        img {vertical-align: middle;}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 80%;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Caption text */
+        .captext {
+            color: #f2f2f2;
+            font-size: 2vw;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 300px) {
+            .text {font-size: 11px}
+        }
+
+        table {
+            width: 100%;
+        }
+        .ten {
+            width: 10%;
+        }
+        .twenty {
+            width: 20%;
+        }
+        .thirty {
+            width: 30%;
+        }
+        .fourty {
+            width: 40%;
+        }
+        .fifty {
+            width: 50%;
+        }
+        .sixty {
+            width: 60%;
+        }
+        .seventy {
+            width: 70%;
+        }
+        .eighty {
+            width: 80%;
+        }
+        .ninty {
+            width: 90%;
+        }
+
+        .hundred {
+            width: 100%;
+        }
+
+        .state {
+            fill: none;
+            stroke: #a9a9a9;
+            stroke-width: 1;
+        }
+
+        .state:hover {
+            fill-opacity: 0.5;
+        }
+
+        #banner img{
+            display:block; width:100%; height:auto;
+        }
+
+        #tooltip {
+            position: absolute;
+            text-align: left;
+            padding: 20px;
+            margin: 10px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 1px;
+            border-radius: 2px;
+            pointer-events: none;
+        }
+
+        #tooltip h4 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        #tooltip {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid grey;
+            border-radius: 5px;
+            font-size: 12px;
+            width: 280px;
+            padding: 4px;
+            color: white;
+            opacity: 0;
+        }
+
+        #tooltip table {
+            table-layout: fixed;
+        }
+
+        #tooltip tr td {
+            padding: 0;
+            margin: 0;
+        }
+
+        #tooltip tr td:nth-child(1) {
+            vertical-align: text-top;
+            width: 80px;
+        }
+
+        #tooltip tr td:nth-child(2) {
+            vertical-align: text-top;
+            text-align: left;
+            width: 200px;
+        }
+
+        table.alternatecolor tr:nth-child(odd) td{
+            background-color:red;
+            color: #eceaea;
+        }
+
+        table.alternatecolor tr:hover:nth-child(odd) td{
+            background-color: #ffb9b9;
+            color: #000000;
+        }
+
+        table.alternatecolor tr:nth-child(even) td{
+            background-color:blue;
+            color: #eceaea;
+        }
+
+        table.alternatecolor tr:hover:nth-child(even) td{
+            background-color: #bbbbf1;
+            color: #000000;
+        }
+
+        .submitbutton {
+            font-size: 3.2vw;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<table>
+    <colgroup>
+        <col style=";width: 85%;" />
+        <col style=";width: 15%;" />
+    </colgroup>
+    <tr>
+        <td style=";font-size:6.4vw;font-family: Helvetica, Arial, sans-serif;"><b>Election Prediction Report</b></td>
+        <td><img th:src="@{/img/starsredwhiteandblue.png}" style="max-height:100%; max-width:100%"/></td>
+    </tr>
+</table>
+<br>
+<span style="font-size:4vw;font-family: Helvetica, Arial, sans-serif;color: lightslategrey"><b>Latest Election Analysis</b></span><br>
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img th:src="@{/img/2020-10-19-WSJ.jpg}" style="width:100%">
+        <div class="captext"><a href="https://www.wsj.com/graphics/the-paths-to-victory/">https://www.wsj.com/graphics/the-paths-to-victory</a></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img th:src="@{/img/2020-10-22-NYTimes.jpg}" style="width:100%">
+        <div class="captext"><a href="https://www.nytimes.com/2020/10/22/us/politics/can-trump-win-the-election.html">https://www.nytimes.com/2020/10/22/us/politics/can-trump-win-the-election.html</a></div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img th:src="@{/img/2020-10-22-Economist.jpg}" style="width:100%">
+        <div class="captext"><a href="https://projects.economist.com/us-2020-forecast/president">https://projects.economist.com/us-2020-forecast/president</a></div>
+    </div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        setTimeout(showSlides, 4000); // Change image every 4 seconds
+    }
+</script>
+<table>
+    <tr>
+        <td style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif;padding: 4px;"><p>
+            <span style="font-size:4vw;font-family: Helvetica, Arial, sans-serif;color: lightslategrey"><b>We need you!</b></span><br>
+            Here below the state of the 2016 Presidential Election.
+            Can you help us predict the presidential election?
+            Here's how it works.  Double click on each of the states to select your predicted outcome.
+            A total of 270 electoral college votes are needed by the winning candidate to become president.
+            Both Maine and Nebraska divide up their votes so take that into consideration when coming up with your prediction.
+            Please put some comments about why you think you have the best prediction.
+            Psst..  Want to get a heads up on the competition?
+            Double click on one of the line entries below to see the details on what others have selected.
+            You can try and submit as many times as you want.
+            We'll find out after November 3rd who got the closest - Good luck!</p>
+        </td>
+    </tr>
+</table>
+<br>
+
+<br>
+<div id="tooltip"></div><!-- div to hold tooltip. -->
+<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+<script th:src="@{/js/uStates.js}"></script> <!-- creates uStates. -->
+<script th:src="@{/js/d3.v3.min.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+
+    function tooltipHtml(n, d) {	/* function to create html content string in tooltip div. */
+        return "<h4>" + n + "</h4><table>" +
+            "<tr><td>Elec. Col. Votes</td><td>" + (d.electoralCollegeVotes) + "</td></tr>" +
+            "<tr><td>2000</td><td>" + (d.Y2000) + "</td></tr>" +
+            "<tr><td>2004</td><td>" + (d.Y2004) + "</td></tr>" +
+            "<tr><td>2008</td><td>" + (d.Y2008) + "</td></tr>" +
+            "<tr><td>2012</td><td>" + (d.Y2012) + "</td></tr>" +
+            "<tr><td>2016</td><td>" + (d.Y2016) + "</td></tr>" +
+            "<tr><td>2020 (Pred.)</td><td>" + (d.Y2020) + "</td></tr>" +
+            "<tr><td>Comments</td><td>" + (d.comments) + "</td></tr>"
+        "</table>";
+    }
+
+    var sampleData = {};	/* Sample random data. */
+    /*<![CDATA[*/
+    var stateDataList = [[${stateForm.getStateDataList()}]];
+    stateDataList.forEach(function (d) {
+        var electoralCollegeVotes = d.electoralVotes,
+            Y2000 = d.y2000,
+            Y2004 = d.y2004,
+            Y2008 = d.y2008,
+            Y2012 = d.y2012,
+            Y2016 = d.y2016,
+            Y2020 = d.y2020,
+            comments = d.notes,
+            mainColorUsed = true,
+            weighting = d.weighting,
+            mainColor = d3.interpolate("#0023ff", "#ff0000")(5),
+            flipColor = d3.interpolate("#0023ff", "#ff0000")(1 - d.weighting);
+
+        sampleData[d.stateName] = {
+            electoralCollegeVotes,
+            Y2000,
+            Y2004,
+            Y2008,
+            Y2012,
+            Y2016,
+            Y2020,
+            comments,
+            mainColorUsed,
+            weighting,
+            mainColor,
+            flipColor
+        };
+    });
+    /*]]>*/
+
+    /* draw states on id #statesvg */
+    uStates.draw("#statesvg", sampleData, tooltipHtml);
+
+    d3.select(self.frameElement).style("height", "600px");
+</script>
+
+
+<form action="#" th:action="@{/}" th:object="${stateForm}" method="post">
+    <table>
+        <colgroup>
+            <col class="sixty" />
+            <col class="twenty" />
+            <col class="thirty" />
+        </colgroup>
+        <tr>
+            <td style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif;"><b>Democratic Electoral College Votes</b></td>
+            <td style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif;"><input id="democraticElectoralCollegeVotes" th:field="*{democraticElectoralCollegeVotes}" readonly size="3" style=";font-size:2vw;font-family: Helvetica, Arial, sans-serif;color:#3636fc;font-weight: bold;"/></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif;"><b>Republican Electoral College Votes</b></td>
+            <td style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif;"><input id="republicanElectoralCollegeVotes" th:field="*{republicanElectoralCollegeVotes}" readonly size="3" style=";font-size:2vw;font-family: Helvetica, Arial, sans-serif;color:#fc2929;font-weight: bold;"/></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <br><br>
+    <img th:src="@{/img/wewantyou.png}" style="max-height:16%; max-width:16%" />
+    <span style="font-size:4vw;font-family: Helvetica, Arial, sans-serif;color: lightslategrey"><b>America needs your comments!</b></span><br>
+    <textarea id="userComments" name="yourComments" rows="3" cols="100" style=";font-size:3vw;font-family: Helvetica, Arial, sans-serif; width: 100%" th:field="*{comments}"/>
+
+    <div th:each="stateData, stat : ${stateForm.getStateDataList()}">
+        <input type="hidden" th:id="stateName+*{stateDataList[__${stat.index}__].stateName}"
+               th:field="*{stateDataList[__${stat.index}__].stateName}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].weighting}"/>
+        <input type="hidden" th:id="electoralVotes+*{stateDataList[__${stat.index}__].stateName}"
+               th:field="*{stateDataList[__${stat.index}__].electoralVotes}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].y2000}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].y2004}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].y2008}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].y2012}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].y2016}"/>
+        <input type="hidden" th:id="y2020+*{stateDataList[__${stat.index}__].stateName}"
+               th:field="*{stateDataList[__${stat.index}__].y2020}"/>
+        <input type="hidden" th:field="*{stateDataList[__${stat.index}__].notes}"/>
+    </div>
+    <button type="submit" value="submit" class="submitbutton">Save</button>
+</form>
+<br>
+<br>
+<script>
+    function getDetailedEntry(d) {
+        window.location.href = d;
+    }
+</script>
+<table style="border: 1px solid #000000; border-collapse: collapse;" class="alternatecolor">
+    <colgroup>
+        <col class="ten" />
+        <col class="ten" />
+        <col class="ten" />
+        <col class="seventy" />
+    </colgroup>
+    <tr style="border: 1px solid #000000;font-size:1vw;font-family: Helvetica, Arial, sans-serif;">
+        <thead style="border: 1px solid #000000;font-size:1vw;font-family: Helvetica, Arial, sans-serif;">
+        <th style="text-align:left; vertical-align: text-top; border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;background-color:#b5b5b5;padding: 5px;"><img th:src="@{/img/people.png}" style="max-height:25%; max-width:25%"/><br>Username</br></th>
+        <th style="text-align:left; vertical-align: text-top; border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;background-color:#b5b5b5;padding: 5px;"><img th:src="@{/img/DEM.png}" style="max-height:25%; max-width:25%"/><br>Electoral Votes (D)</th>
+        <th style="text-align:left; vertical-align: text-top; border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;background-color:#b5b5b5;padding: 5px;"><img th:src="@{/img/GOP.png}" style="max-height:25%; max-width:25%"/><br>Electoral Votes (R)</th>
+        <th style="text-align:left; vertical-align: text-top; border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;background-color:#b5b5b5;padding: 5px;"><img th:src="@{/img/ballotbox.png}" style="max-height:5%; max-width:3%"/><br>Comments</br></th>
+        </thead>
+    </tr>
+        <tbody>
+        <tr th:each="forecast : ${summaryForecasts}" style="border: 1px solid #000000" th:attr="ondblclick=|getDetailedEntry('@{/detail/}${forecast.objectKeyName}')|">
+            <td style="border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;padding: 5px;"><div th:text="${forecast.username}" /> <div th:text="${forecast.dateTime}" style="font-size:1vw;font-family: Helvetica, Arial, sans-serif;"/></td>
+            <td style="border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;padding: 5px;"><div th:text="${forecast.democraticElectoralCollegeVotes}" /></td>
+            <td style="border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;padding: 5px;"><div th:text="${forecast.republicanElectoralCollegeVotes}" /></td>
+            <td style="border: 1px solid #000000;font-size:2vw;font-family: Helvetica, Arial, sans-serif;padding: 5px;"><div th:text="${forecast.comments}" /></td>
+        </tr>
+        </tbody>
+    </tr>
+</table>
+
+</body>
+</html>
